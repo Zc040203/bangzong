@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>给边宗宝宝的告白</title>
+    <style>
+        /* 页面样式美化，可根据喜好修改 */
+        body {
+            background-color: #fdf2f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 90%;
+        }
+        .typing-text {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #333;
+            white-space: pre-line; /* 保留换行 */
+            border-right: 2px solid #ff4d94; /* 光标效果 */
+            padding-right: 5px;
+            animation: blink 1s step-end infinite;
+        }
+        /* 光标闪烁动画 */
+        @keyframes blink {
+            from, to { border-color: transparent; }
+            50% { border-color: #ff4d94; }
+        }
+        .signature {
+            margin-top: 30px;
+            text-align: right;
+            color: #ff4d94;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="typingBox" class="typing-text"></div>
+        <div class="signature">来自：扎次</div>
+    </div>
+
+    <script>
+        // 要显示的告白文本（保留原格式）
+        const text = `亲爱的边宗宝宝❤️‍🔥：
+
+偷偷说，最开始对你就只是一点点好感啦，谁知道后来越陷越深，好感变喜欢，喜欢变超超超爱，最后居然没你不行，成了我的日常习惯！
+
+少了你真的像丢了全世界，还好你来了，把我的小世界暖得热乎乎的～不管以后咋样，反正现在有你，就是最最最棒的事！
+
+可能我的爱有点傻乎乎的，不够成熟，但我对你的认真，绝对是百分百的！你在我这儿可是独一份的宝贝，专属的偏爱，别人想抢都抢不走～
+
+你肯定不知道吧？我比你以为的，还要爱你一万倍！超喜欢每天早起听到你的声音，超喜欢你分享好玩的视频给我，超喜欢你大事小事都唠给我听～
+
+我想和你一起走好多好多路，过好多好多天，期待和你在一起的每一秒，更期待和你解锁超多超有趣的事😘。`;
+        
+        const typingBox = document.getElementById('typingBox');
+        let index = 0;
+        const speed = 80; // 打字速度，数值越小越快
+
+        // 打字机核心函数
+        function typeWriter() {
+            if (index < text.length) {
+                typingBox.textContent += text.charAt(index);
+                index++;
+                setTimeout(typeWriter, speed);
+            } else {
+                // 文字打完后，去掉光标
+                typingBox.style.borderRight = 'none';
+            }
+        }
+
+        // 启动打字效果
+        window.onload = typeWriter;
+    </script>
+</body>
+</html>
